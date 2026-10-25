@@ -1,27 +1,71 @@
-# Firstproject
+# Customer Angular (Firstproject)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+Angular 15 learning project that demonstrates core Angular features: routing with a 404 page, data binding, template-driven forms, a customer details view, a product list loaded from the public [Fake Store API](https://fakestoreapi.com/products) with Angular Material dialogs, and client-side pagination with `ngx-pagination`.
 
-## Development server
+## Tech stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 15 (Angular CLI 15.0), TypeScript
+- Angular Material 15, Bootstrap 5
+- ngx-pagination
 
-## Code scaffolding
+## Folder structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```text
+Customer-Angular/
+├── .vscode/
+├── src/
+│   ├── app/
+│   │   ├── about/
+│   │   ├── customer-details/
+│   │   ├── data-binding/
+│   │   ├── delete-dialog/
+│   │   ├── home/
+│   │   ├── my-form/
+│   │   ├── name-editer/
+│   │   ├── pagenotfound-component/
+│   │   ├── pagination/
+│   │   └── product/
+│   ├── assets/
+│   ├── index.html
+│   └── main.ts
+├── .editorconfig
+├── .gitignore
+├── angular.json
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
+```
 
-## Build
+| Path | Purpose |
+| --- | --- |
+| `src/app/home`, `about` | Simple pages |
+| `src/app/product` | Product list (Fake Store API) and `ProductService` |
+| `src/app/pagination` | Paginated product table loaded from the Fake Store API (`/fakeapi` route); `db.json` holds sample data that the code does not currently use |
+| `src/app/customer-details` | Customer model, sample data and details component |
+| `src/app/data-binding`, `my-form`, `name-editer` | Data-binding and forms examples |
+| `src/app/delete-dialog` | Material confirmation dialog |
+| `src/app/pagenotfound-component` | Wildcard (404) route |
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Routes: `/` and `/home`, `/products`, `/about`, `/fakeapi`, and `**` (not found).
 
-## Running unit tests
+## Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js 14.20+, 16.13+ or 18.10+ (supported by Angular 15) and npm
+- Internet access for the product page (Fake Store API)
 
-## Running end-to-end tests
+## Running locally
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install
+npm start          # ng serve → http://localhost:4200
+```
 
-## Further help
+## Build and test
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm run build      # output in dist/
+npm test           # Karma + Jasmine
+```
